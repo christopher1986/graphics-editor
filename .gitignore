@@ -1,0 +1,24 @@
+### NPM ###
+
+/node_modules
+package-lock.json
+
+### Webpack ###
+
+/dist
+
+### Tests ###
+
+/coverage
+
+### Linter ###
+
+.eslintcache
+
+### Miscellaneous ###
+
+.DS_Store
+.idea
+.vscode
+*.log
+

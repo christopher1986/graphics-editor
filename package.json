@@ -1,0 +1,31 @@
+{
+  "name": "word-processor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jasmine": "^3.3.13",
+    "html-webpack-plugin": "^3.2.0",
+    "jasmine": "^3.4.0",
+    "jasmine-ts": "^0.3.0",
+    "karma": "^4.1.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^2.0.1",
+    "karma-typescript": "^4.1.1",
+    "ts-loader": "^5.3.3",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.2",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "scripts": {
+    "test": "karma start --single-run --browsers ChromeHeadlessNoSandbox karma.conf.js",
+    "build": "webpack --mode development",
+    "serve": "webpack-dev-server --mode development --content-base dist/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
