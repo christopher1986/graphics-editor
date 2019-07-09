@@ -14,12 +14,12 @@ export default class Point implements IPoint {
   /**
    * The x coordinate of this point.
    */
-  private _x: number = 0;
+  private _x: number;
 
   /**
    * The y coordinate of this point.
    */
-  private _y: number = 0;
+  private _y: number;
 
   /**
    * Creates a new instance of the Point.
@@ -28,8 +28,8 @@ export default class Point implements IPoint {
    * @param [y] The y coordinate of the point.
    */
   public constructor(x = 0, y = 0) {
-    this.x = x;
-    this.y = y;
+    this._x = x;
+    this._y = y;
   }
 
   /**

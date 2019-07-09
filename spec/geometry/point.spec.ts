@@ -2,6 +2,13 @@ import Point from '../../src/geometry/point';
 
 describe('Point class', () => {
 
+  it('should create an instance with 0,0 as coordindates', () => {
+    const point = new Point();
+
+    expect(point.x).toBe(0);
+    expect(point.y).toBe(0);
+  });
+
   it('should create an instance with the given coordinates', () => {
     const point = new Point(10, 20);
 
