@@ -16,14 +16,14 @@ describe('Point class', () => {
     expect(point.y).toBe(20);
   });
 
-  it('should update the x coordinate', () => {
+  it('should update the x coordinate of the Point object', () => {
     const point = new Point(0, 0);
     point.x = 10;
 
     expect(point.x).toBe(10);
   });
 
-  it('should update the y coordindate', () => {
+  it('should update the y coordindate of the Point object', () => {
     const point = new Point(0, 0);
     point.y = 10;
 
