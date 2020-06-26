@@ -1,1 +1,1 @@
-# Image Editor
+# BitmapImage Editor

@@ -24,7 +24,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
         hash: true,
-        title: 'My Image App',
+        title: 'My BitmapImage App',
         template: './assets/index.html',
         filename: 'index.html'
     })

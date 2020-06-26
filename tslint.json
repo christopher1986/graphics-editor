@@ -7,7 +7,10 @@
   "rules": {
     "quotemark": [ true, "single" ],
     "indent": [ true, "spaces", 2 ],
-    "variable-name": [true, "check-format", "allow-leading-underscore" ]
+    "variable-name": [true, "check-format", "allow-leading-underscore" ],
+    "interface-name": [true, "never-prefix"],
+    "member-ordering": [false],
+    "no-empty": [false]
   },
   "rulesDirectory": []
 }

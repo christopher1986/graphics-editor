@@ -1,4 +1,4 @@
-import Bounds from '../../src/geometry/bounds';
+import Bounds from '../../src/geometry/Bounds';
 
 describe('Bounds class', () => {
 

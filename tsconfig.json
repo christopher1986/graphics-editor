@@ -3,11 +3,20 @@
     "outDir": "./dist/",
     "sourceMap": true,
     "module": "commonjs",
+    "noEmit": true,
     "target": "es5",
-    "allowJs": true,                     
+    "allowJs": true,
     "strict": true,
+    "lib": [
+      "dom",
+      "es5",
+      "scripthost"
+    ]
   },
   "exclude": [
-    "node_modules"
+    "./node_modules"
+  ],
+  "include": [
+    "./src/**/*"
   ]
 }

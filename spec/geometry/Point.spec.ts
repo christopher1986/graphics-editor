@@ -1,4 +1,4 @@
-import Point from '../../src/geometry/point';
+import Point from '../../src/geometry/Point';
 
 describe('Point class', () => {
 
