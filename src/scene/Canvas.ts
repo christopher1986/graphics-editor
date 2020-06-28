@@ -22,4 +22,9 @@ export default class Canvas {
   public disablePlugin(plugin: Plugin): void {
     plugin.disabled();
   }
+
+  public addDrawable(drawable: Drawable): void {
+    this.drawables.push(drawable);
+  }
+
 }

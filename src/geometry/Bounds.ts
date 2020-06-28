@@ -1,8 +1,8 @@
+import Point from './Point';
+
 /**
  * The Bounds class defines the location (x, y) and dimension (width x height) of an object.
  */
-import Point from './Point';
-
 export default class Bounds {
 
   /**
