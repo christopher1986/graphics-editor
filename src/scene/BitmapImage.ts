@@ -1,8 +1,8 @@
 import ContextResolver from '../core/ContextResolver';
 import Bounds from '../geometry/Bounds';
-import AbstractDrawing from './AbstractDrawing';
+import AbstractDrawable from './AbstractDrawable';
 
-export default class BitmapImage extends AbstractDrawing {
+export default class BitmapImage extends AbstractDrawable {
 
   constructor(private image: HTMLImageElement) {
     super();

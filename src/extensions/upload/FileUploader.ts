@@ -1,4 +1,4 @@
-import {filter} from 'rxjs/operators';
+import { filter } from 'rxjs/operators';
 import Plugin from '../../core/Plugin';
 import BitmapImage from '../../scene/BitmapImage';
 import Canvas from '../../scene/Canvas';
@@ -15,8 +15,9 @@ export default class FileUploader implements Plugin {
 
   private readonly receivers: FileReceiver[];
 
-  public constructor(elements: HTMLElement[]) {
-    this.receivers = elements.map((element: HTMLElement) => this.factory.getFileReceiver(element));
+  public constructor(htmlElements: Iterable<HTMLElement> | ArrayLike<HTMLElement>) {
+    this.receivers = Array.from(htmlElements)
+      .map((htmlElement: HTMLElement) => this.factory.getFileReceiver(htmlElement));
   }
 
   public disabled(): void {
@@ -27,7 +28,7 @@ export default class FileUploader implements Plugin {
     const reader: FileReader = new FileReader();
     reader.onload = (event: ProgressEvent<FileReader>) => {
         if (event.target && event.target.result) {
-            canvas.addDrawable(FileUploader.getBitmapImage(event.target.result));
+          FileUploader.addDrawable(event.target.result, canvas);
         }
     };
 
@@ -35,15 +36,14 @@ export default class FileUploader implements Plugin {
       receiver.onCreate();
       receiver.file$
           .pipe(filter((file: File) => this.validator.validate(file)))
-          .subscribe(reader.readAsDataURL);
+          .subscribe((file: File) => reader.readAsDataURL(file));
     });
   }
 
-  private static getBitmapImage(result: string | ArrayBuffer): BitmapImage {
+  private static addDrawable(result: string | ArrayBuffer, canvas: Canvas): void {
       const image = new Image();
       image.src = result as string;
-
-      return new BitmapImage(image);
+      image.onload = () => canvas.addDrawable(new BitmapImage(image));
   }
 
 }

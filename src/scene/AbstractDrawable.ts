@@ -4,9 +4,9 @@ import { OnCreate, OnDestroy } from '../core/hooks';
 import Bounds from '../geometry/Bounds';
 import { Drawable } from './Drawable';
 
-export default abstract class AbstractDrawing implements Drawable, OnCreate, OnDestroy {
+export default abstract class AbstractDrawable implements Drawable, OnCreate, OnDestroy {
 
-  public redraw$: Subject<AbstractDrawing> = new Subject();
+  public redraw$: Subject<AbstractDrawable> = new Subject();
 
   public invalidate(): void {
     this.redraw$.next(this);
