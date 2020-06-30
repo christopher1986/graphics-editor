@@ -17,10 +17,12 @@ export default class FileSelect extends AbstractFileReceiver {
     }
 
     private onFileSelect(event: Event): void {
+        event.preventDefault();
+
         const target: HTMLInputElement = event.target as HTMLInputElement;
         const files: File[] = (target.files) ? Array.from(target.files) : [];
+        target.value = '';
         files.forEach((file: File) => this._file$.next(file));
-        event.preventDefault();
     }
 
 }
