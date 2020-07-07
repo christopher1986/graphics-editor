@@ -1,8 +1,7 @@
 import ContextResolver from '../core/ContextResolver';
-import EventTarget from '../event/EventTarget';
 import Bounds from '../geometry/Bounds';
 
-export default interface Drawable extends EventTarget {
+export default interface Drawable {
   draw(resolver: ContextResolver): void;
 
   invalidate(): void;
