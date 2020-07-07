@@ -1,14 +1,11 @@
 import ContextResolver from '../core/ContextResolver';
-import { Drawable } from './Drawable';
+import Drawable from './Drawable';
 import DrawableContainer from './DrawableContainer';
 
 export default class Stage extends DrawableContainer {
 
-  private readonly resolver: ContextResolver;
-
-  public constructor(public readonly canvasElement: HTMLCanvasElement) {
+  public constructor(private readonly resolver: ContextResolver) {
     super();
-    this.resolver = new ContextResolver(canvasElement);
   }
 
   public add(drawable: Drawable): void {

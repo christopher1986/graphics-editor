@@ -1,42 +1,46 @@
 import ContextResolver from '../core/ContextResolver';
 import Bounds from '../geometry/Bounds';
 import AbstractDrawable from './AbstractDrawable';
-import { Drawable } from './Drawable';
+import Drawable from './Drawable';
 
 export default class DrawableContainer extends AbstractDrawable {
 
-  protected drawables: Drawable[] = [];
+  protected children: Drawable[] = [];
 
   public add(drawable: Drawable): void {
-    this.drawables.push(drawable);
+    this.children.push(drawable);
   }
 
   public addAll(drawables: Iterable<Drawable> | ArrayLike<Drawable>): void {
     const removables: Drawable[] = Array.from(drawables);
-    removables.forEach((drawable: Drawable) => this.drawables.push(drawable));
+    removables.forEach((drawable: Drawable) => this.children.push(drawable));
   }
 
   public remove(drawable: Drawable): void {
-    this.drawables = this.drawables.filter((item: Drawable) => item !== drawable);
+    this.children = this.children.filter((item: Drawable) => item !== drawable);
   }
 
   public removeAll(drawables: Iterable<Drawable> | ArrayLike<Drawable>): void {
     const removables: Drawable[] = Array.from(drawables);
-    this.drawables = this.drawables.filter((item: Drawable) => !removables.includes(item));
+    this.children = this.children.filter((item: Drawable) => !removables.includes(item));
   }
 
   public clear(): void {
-    while (this.drawables.length) {
-      this.drawables.pop();
+    while (this.children.length) {
+      this.children.pop();
     }
   }
 
+  public get drawables(): Drawable[] {
+    return [ ...this.children ];
+  }
+
   public draw(resolver: ContextResolver): void {
-    this.drawables.forEach((drawable: Drawable) => drawable.draw(resolver));
+    this.children.forEach((drawable: Drawable) => drawable.draw(resolver));
   }
 
   public getBounds(): Bounds {
-    return this.drawables
+    return this.children
       .map((drawable: Drawable) => drawable.getBounds())
       .reduce(DrawableContainer.calculateBounds, new Bounds());
   }

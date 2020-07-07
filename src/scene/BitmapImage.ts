@@ -4,7 +4,7 @@ import AbstractDrawable from './AbstractDrawable';
 
 export default class BitmapImage extends AbstractDrawable {
 
-  constructor(private image: HTMLImageElement) {
+  public constructor(private image: HTMLImageElement) {
     super();
   }
 
